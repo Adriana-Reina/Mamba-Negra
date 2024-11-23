@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Tienda Online</title>
+    <style>
+        body {
+            background-image: url('../Imagenes/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .header-title {
+            flex: 1;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 10px;
+        }
+
+        .menu-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .products-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            padding: 15px;
+            box-sizing: border-box;
+            flex: 1 1 calc(33.333% - 20px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        addEvent(window, 'load', cargar, false);
+
+        function addEvent(ele, eve, fun, cap) {
+            if (window.attachEvent)
+                ele.attachEvent('on' + eve, fun);
+            else
+                ele.addEventListener(eve, fun, cap);
+        }
+
+        function cargar() {
+            addEvent(document.getElementById("inicio"), 'click', inicio, false);
+            addEvent(document.getElementById("agendar"), 'click', agendarCita, false);
+            addEvent(document.getElementById("tienda"), 'click', tiendaI, false);
+            addEvent(document.getElementById("bolsa"), 'click', bolsa, false);
+            addEvent(document.getElementById("disenos"), 'click', disenos, false);
+            addEvent(document.getElementById("cerrar"), 'click', cerrarSesion, false);
+        }
+
+        function inicio() {
+            window.location.href = 'inicio.html';
+        }
+
+        function agendarCita() {
+            window.location.href = 'registrar_cita.html';
+        }
+
+        function tiendaI() {
+            window.location.href = 'tienda.html';
+        }
+
+        function bolsa() {
+            window.location.href = 'bolsa.html';
+        }
+
+        function disenos() {
+            window.location.href = 'disenos.html';
+        }
+
+        function cerrarSesion() {
+            window.location.href = '../consultas/cerrar_sesion.php';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../Imagenes/logo.jpeg" alt="Logo" class="logo">
+        <div class="header-title">Death Queen</div>
+        <div class="menu">
+            <button class="menu-button" id="inicio">Pagina Principal</button>
+            <button class="menu-button" id="agendar">Agendar Cita</button>
+            <button class="menu-button" id="tienda">Tienda Online</button>
+            <button class="menu-button" id="bolsa">Mi Bolsa</button>
+            <button class="menu-button" id="disenos">Disenos</button>
+            <button class="menu-button" id="cerrar">Cerrar Sesion</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h1>Tienda Online</h1>
+            <div class="products-grid">
+
+                <div class="product-card">
+                    <img src="../Imagenes/productos/img1.jpg" alt="Producto 1">
+                    <h3>Crema de Tatuaje LONG LIFE TATTOO</h3>
+                    <p>$199.99</p>
+                    <form action="../consultas/agregar_pedido.php" method="post">
+                        <input type="hidden" name="numero_usuario" value="<?php echo $_SESSION['Num_usr']; ?>">
+                        <input type="hidden" name="id_producto" value="1">
+                        <button type="submit">Comprar</button>
+                    </form>
+                </div>
+
+                <div class="product-card">
+                    <img src="../Imagenes/productos/img2.jpg" alt="Producto 2">
+                    <h3>Crema de Tatuaje VLANC + PUIR</h3>
+                    <p>$299.99</p>
+                    <form action="../consultas/agregar_pedido.php" method="post">
+                        <input type="hidden" name="numero_usuario" value="<?php echo $_SESSION['Num_usr']; ?>">
+                        <input type="hidden" name="id_producto" value="2">
+                        <button type="submit">Comprar</button>
+                    </form>
+                </div>
+
+                <div class="product-card">
+                    <img src="../Imagenes/productos/img3.jpg" alt="Producto 3">
+                    <h3>Crema de Tatuaje TATTOO Masters</h3>
+                    <p>$399.99</p>
+                    <form action="../consultas/agregar_pedido.php" method="post">
+                        <input type="hidden" name="numero_usuario" value="<?php echo $_SESSION['Num_usr']; ?>">
+                        <input type="hidden" name="id_producto" value="3">
+                        <button type="submit">Comprar</button>
+                    </form>
+                </div>
+
+                <div class="product-card">
+                    <img src="../Imagenes/productos/img4.jpg" alt="Producto 4">
+                    <h3>MAQUINA DE TATUAJE #1</h3>
+                    <p>$1490.99</p>
+                    <form action="../consultas/agregar_pedido.php" method="post">
+                        <input type="hidden" name="numero_usuario" value="<?php echo $_SESSION['Num_usr']; ?>">
+                        <input type="hidden" name="id_producto" value="4">
+                        <button type="submit">Comprar</button>
+                    </form>
+                </div>
+
+                <div class="product-card">
+                    <img src="../Imagenes/productos/img5.jpg" alt="Producto 5">
+                    <h3>MAQUINA DE TATUAJE #2</h3>
+                    <p>$2490.99</p>
+                    <form action="../consultas/agregar_pedido.php" method="post">
+                        <input type="hidden" name="numero_usuario" value="<?php echo $_SESSION['Num_usr']; ?>">
+                        <input type="hidden" name="id_producto" value="5">
+                        <button type="submit">Comprar</button>
+                    </form>
+                </div>
+
+                <div class="product-card">
+                    <img src="../Imagenes/productos/img6.jpg" alt="Producto 6">
+                    <h3>TINTAS PARA MAQUINA #1</h3>
+                    <p>$1209.99</p>
+                    <form action="../consultas/agregar_pedido.php" method="post">
+                        <input type="hidden" name="numero_usuario" value="<?php echo $_SESSION['Num_usr']; ?>">
+                        <input type="hidden" name="id_producto" value="6">
+                        <button type="submit">Comprar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

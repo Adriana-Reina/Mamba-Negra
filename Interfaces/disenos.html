@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseños</title>
+    <style>
+        body {
+            background-image: url('../Imagenes/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #007BFF;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .title {
+            flex: 1;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 10px;
+        }
+
+        .menu-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            height: calc(100vh - 100px);
+            box-sizing: border-box;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 1200px; 
+        }
+
+        .image-grid {
+            display: flex;
+            justify-content: space-between; 
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px; 
+            max-width: 200px; 
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .form-group img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .form-group p {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        addEvent(window, 'load', cargar, false);
+
+        function addEvent(ele, eve, fun, cap) {
+            if (window.attachEvent)
+                ele.attachEvent('on' + eve, fun);
+            else
+                ele.addEventListener(eve, fun, cap);
+        }
+
+        function cargar() {
+            addEvent(document.getElementById("inicio"), 'click', inicio, false);
+            addEvent(document.getElementById("agendar"), 'click', agendarCita, false);
+            addEvent(document.getElementById("tienda"), 'click', tiendaI, false);
+            addEvent(document.getElementById("bolsa"), 'click', bolsa, false);
+            addEvent(document.getElementById("disenos"), 'click', disenos, false);
+            addEvent(document.getElementById("cerrar"), 'click', cerrarSesion, false);
+        }
+
+        function inicio() {
+            window.location.href = 'inicio.html';
+        }
+
+        function agendarCita() {
+            window.location.href = 'registrar_cita.html';
+        }
+
+        function tiendaI() {
+            window.location.href = 'tienda.html';
+        }
+
+        function bolsa() {
+            window.location.href = 'bolsa.html';
+        }
+
+        function disenos() {
+            window.location.href = 'disenos.html';
+        }
+
+        function cerrarSesion() {
+            window.location.href = '../Consultas/cerrar_sesion.php';
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../Imagenes/logo.jpeg" class="logo">
+        <div class="title">Death Queen</div>
+        <div class="menu">
+            <button class="menu-button" id="inicio">Página Principal</button>
+            <button class="menu-button" id="agendar">Agendar Cita</button>
+            <button class="menu-button" id="tienda">Tienda Online</button>
+            <button class="menu-button" id="bolsa">Mi Bolsa</button>
+            <button class="menu-button" id="disenos">Diseños</button>
+            <button class="menu-button" id="cerrar">Cerrar Sesión</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h1>Diseños</h1>
+            <p>Descubre algunos de los diseños exclusivos que ofrecemos en nuestra empresa. Cada tatuaje es una obra de arte única, creada con pasión y precisión para reflejar tu estilo personal y tus emociones.</p>
+            <div class="image-grid">
+                <div class="form-group">
+                    <img src="../Imagenes/diseños/tat1.jpeg" alt="Marca de Orochimaru">
+                    <p><strong>Marca de Orochimaru:</strong> Tatuaje de la marca de Orochimaru del anime Naruto, que Sasuke lleva en su espalda. Es un diseño que simboliza la conexión entre Orochimaru y Sasuke, representando poder y lealtad.</p>
+                </div>
+                <div class="form-group">
+                    <img src="../Imagenes/diseños/tat2.jpeg" alt="Controles de Música">
+                    <p><strong>Controles de Música:</strong> Tatuaje en la muñeca que muestra los iconos de pausa, reproducción, siguiente y cambiar de canción, con la palabra "life" arriba. Representa la importancia de la música en la vida del portador.</p>
+                </div>
+                <div class="form-group">
+                    <img src="../Imagenes/diseños/tat3.jpeg" alt="Corazón con Candado y Llave">
+                    <p><strong>Corazón con Candado y Llave:</strong> Tatuaje compartido para parejas. En una mano, un corazón en forma de candado, y en la otra, la llave que abre ese corazón. Simboliza el amor y la conexión especial entre dos personas.</p>
+                </div>
+                <div class="form-group">
+                    <img src="../Imagenes/diseños/tat4.jpeg" alt="Bob Esponja y Patricio Chibi">
+                    <p><strong>Bob Esponja y Patricio Chibi:</strong> Tatuaje a color de Bob Esponja y Patricio en versión chibi. Un diseño divertido que muestra a estos personajes populares de una manera adorable y pequeña.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

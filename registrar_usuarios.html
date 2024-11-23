@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Registro de Usuario</title>
+    <style>
+
+        body {
+            background-image: url('Imagenes/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        .miFormulario {
+            background-color: #fff;
+            padding: 20px;
+            margin: 50px auto;
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+        }
+    </style>
+    <script type="text/javascript">
+        addEvent(window, 'load', cargar, false);
+
+        function addEvent(ele, eve, fun, cap) {
+            if (window.attachEvent)
+                ele.attachEvent('on' + eve, fun);
+            else
+                ele.addEventListener(eve, fun, cap);
+        }
+
+        function cargar() {
+            addEvent(document.getElementById("nombreUsuario"), 'keypress', filtraLetras, false);
+            addEvent(document.getElementById("apellidoUsuario"), 'keypress', filtraLetras, false);
+            addEvent(document.getElementById("telefonoUsuario"), 'keypress', filtraNumeros, false);
+            addEvent(document.getElementById("correoElectronico"), 'keypress', filtraUsrCnt, false);
+            addEvent(document.getElementById("contrasena"), 'keypress', filtraUsrCnt, false);
+            addEvent(document.getElementById("confirmarContrasena"), 'keypress', filtraUsrCnt, false);
+            addEvent(document.getElementById("Registrar"), 'click', enviarDatos, false);
+        }
+
+        function enviarDatos() {
+            var nombre = document.getElementById("nombreUsuario").value;
+            var apellido = document.getElementById("apellidoUsuario").value;
+            var fechaNacimiento = document.getElementById("fechaNacimiento").value;
+            var direccion = document.getElementById("direccionUsuario").value;
+            var telefono = document.getElementById("telefonoUsuario").value;
+            var correo = document.getElementById("correoElectronico").value;
+            var contrasena = document.getElementById("contrasena").value;
+            var confirmarContrasena = document.getElementById("confirmarContrasena").value;
+
+            if (nombre != "" && apellido != "" && fechaNacimiento != "" && direccion != "" && telefono != "" && correo != "" && contrasena != "" && confirmarContrasena != "") {
+                if (contrasena === confirmarContrasena) {
+                    alert("Registrando...");
+                    document.getElementById("frm_usuario").submit();
+                } else {
+                    alert("Las contraseñas no coinciden.");
+                }
+            } else {
+                alert("Debes llenar todos los campos.");
+            }
+        }
+
+        function filtraUsrCnt(event) {
+            if (event.keyCode != 32) {
+                event.returnValue = true;
+            } else {
+                event.returnValue = false;
+            }
+        }
+
+        function filtraLetras() {
+            if ((event.keyCode >= 97 && event.keyCode <= 122) || (event.keyCode >= 65 && event.keyCode <= 90)) {
+                event.returnValue = true;
+            } else {
+                event.returnValue = false;
+            }
+        }
+
+        function filtraNumeros() {
+            if ((event.keyCode >= 48 && event.keyCode <= 57)) {
+                event.returnValue = true;
+            } else {
+                event.returnValue = false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="miFormulario">
+        <h2>Registro de Usuario</h2>
+        <form id="frm_usuario" action="Consultas/Procesar_registro_usuario.php" method="POST">
+            <input type="text" id="nombreUsuario" placeholder="Nombre" name="nombre">
+            <input type="text" id="apellidoUsuario" placeholder="Apellido" name="apellido">
+            <input type="date" id="fechaNacimiento" name="fecha_nacimiento">
+            <input type="text" id="direccionUsuario" placeholder="Direccion" name="direccion">
+            <input type="tel" id="telefonoUsuario" placeholder="Numero de Telefono" name="telefono">
+            <input type="email" id="correoElectronico" placeholder="Correo Electronico" name="correo">
+            <input type="password" id="contrasena" placeholder="Contrasena" name="contrasena">
+            <input type="password" id="confirmarContrasena" placeholder="Confirmar Contrasena">
+            <button type="button" id="Registrar">Registrar</button>
+            <p>
+                <a href="inicio-sesion.html" id="link_inicio_sesion">Volver al inicio de Sesion</a>
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>

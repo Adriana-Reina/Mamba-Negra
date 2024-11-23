@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Tattoo Mamba Negra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('../Imagenes/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            backdrop-filter: brightness(0.8);
+        }
+
+        .image-section img {
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .menu {
+            text-align: left;
+        }
+
+        .menu h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .menu h2 {
+            font-size: 2em;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .menu button:hover {
+            background-color: #555;
+        }
+    </style>
+    <script type="text/javascript">
+        addEvent(window, 'load', cargar, false);
+
+        function addEvent(ele, eve, fun, cap) {
+            if (window.attachEvent)
+                ele.attachEvent('on' + eve, fun);
+            else
+                ele.addEventListener(eve, fun, cap);
+        }
+
+        function cargar() {
+            addEvent(document.getElementById("cita"), 'click', registroCita, false);
+            addEvent(document.getElementById("tienda"), 'click', tiendaI, false);
+            addEvent(document.getElementById("bolsa"), 'click', bolsa, false);
+            addEvent(document.getElementById("disenos"), 'click', disenos, false);
+        }
+
+        function registroCita() {
+            window.location.href = 'registrar_cita.html';
+
+        }
+        function tiendaI() {
+            window.location.href = 'tienda.html';
+
+        }
+        function bolsa() {
+            window.location.href = 'bolsa.html';
+
+        }
+        function disenos() {
+            window.location.href = 'disenos.html';
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="../Imagenes/logo.jpeg">
+        </div>
+        <div class="menu">
+            <h1>TATTOO</h1>
+            <h2>Death Queen</h2>
+            <ul>
+                <li><button id="cita">01 Agenda cita</button></li>
+                <li><button id="tienda">02 Tienda Online</button></li>
+                <li><button id="bolsa">03 Bolsa de Compras</button></li>
+                <li><button id="disenos">04 Disenos</button></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

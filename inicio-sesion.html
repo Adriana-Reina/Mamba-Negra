@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Inicio de Sesion</title>
+    <style>
+
+        body {
+            background-image: url('Imagenes/fondo.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+
+        .miFormulario {
+            background-color: #fff;
+            padding: 20px;
+            margin: 50px auto;
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+        }
+    </style>
+    <script type="text/javascript">
+        addEvent(window, 'load', cargar, false);
+
+        function addEvent(ele, eve, fun, cap) {
+            if (window.attachEvent)
+                ele.attachEvent('on' + eve, fun);
+            else
+                ele.addEventListener(eve, fun, cap);
+        }
+
+        function cargar() {
+            addEvent(document.getElementById("correo_electronico"), 'keypress', filtraUsrCnt, false);
+            addEvent(document.getElementById("contrasena"), 'keypress', filtraUsrCnt, false);
+            addEvent(document.getElementById("enviar"), 'click', enviarDatos, false);
+        }
+
+        function enviarDatos() {
+
+            if ((document.getElementById("correo_electronico").value) != "" && (document.getElementById("contrasena").value) != "") {
+                alert("Enviando Solicitud");
+                document.getElementById("frm_usuario").submit();
+            } else {
+                alert("Debes llenar todos los campos");
+            }
+        }
+
+        function filtraUsrCnt() {
+            if (event.keyCode != 32) {
+                event.returnValue = true;
+            } else {
+                event.returnValue = false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="miFormulario">
+        <h2>Iniciar Sesion</h2>
+        <form id="frm_usuario" action="Consultas/Procesar_inicio_sesion.php" method="POST">
+            <input type="text" id="correo_electronico" placeholder="Correo Electronico" name="correo_electronico">
+            <input type="password" id="contrasena" placeholder="Contrasena" name="contrasena">
+            <button type="button" id="enviar">Entrar</button>
+            <p>
+                No tienes una cuenta?
+                <a href="registrar_usuarios.html" id="link_registro">Registrate aqui</a>
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>
